@@ -1,4 +1,5 @@
-#це для тесту
+#its for test
+\   
 
 
 def bubble_sort(arr):
