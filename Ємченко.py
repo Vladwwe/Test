@@ -1,47 +1,31 @@
-#its for test
-\   
 
-
-def bubble_sort(arr):
-    """Бульбашкове сортування"""
-    a = arr.copy()
+def bubble_sort(a):
     n = len(a)
-    for i in range(n):
-        for j in range(0, n - i - 1):
-            if a[j] > a[j + 1]:
-                a[j], a[j + 1] = a[j + 1], a[j]
+    for num in range(n-1):
+        for i in range(n-1):
+            if a[i] > a[i+1]:
+                a[i],a[i+1] = a[i+1],a[i]
     return a
 
-
-def selection_sort(arr):
-    """Сортування вибором"""
-    a = arr.copy()
+def selection_sort(a):
     n = len(a)
-    for i in range(n):
-        min_index = i
-        for j in range(i + 1, n):
-            if a[j] < a[min_index]:
-                min_index = j
-        a[i], a[min_index] = a[min_index], a[i]
+    for num in range(n-1):
+        min_index = num
+        for i in range(num+1,n):
+            if a[i] < a[min_index]:
+                min_index = i
+    a[num],a[min_index] = a[min_index],a[num]
+    return a
+def insertion_sort(a):
+    n = len(a)
+    for num in range (1,n):
+        for i in range(num,0,-1):
+            if a[i]<a[i-1]:
+                a[i],a[i-1]=a[i-1],a[i]
     return a
 
 
-def insertion_sort(arr):
-    """Сортування вставкою"""
-    a = arr.copy()
-    for i in range(1, len(a)):
-        key = a[i]
-        j = i - 1
-        while j >= 0 and a[j] > key:
-            a[j + 1] = a[j]
-            j -= 1
-        a[j + 1] = key
-    return a
-
-
-# приклад перевірки роботи функцій
-if __name__ == "__main__":
-    data = [5, 2, 9, 1, 5, 6]
-    print("Bubble sort:", bubble_sort(data))
-    print("Selection sort:", selection_sort(data))
-    print("Insertion sort:", insertion_sort(data))
+mass = [5,3,2,1,4,6,9,8,3,2,1]
+print(bubble_sort(mass))
+print(selection_sort(mass))
+print(insertion_sort(mass))
